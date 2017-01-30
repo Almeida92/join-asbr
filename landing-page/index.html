@@ -4,11 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compre Já</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-app="actual">
         <div class="container">
             <div class="row" style="margin:30px 0">
                 <div class="col-lg-3">
@@ -19,9 +21,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" ng-controller="landingPageController">
                 <div class="col-lg-6" id="form-container">
-
+                    
                     <form id="step_1" class="form-step">
                         <div class="panel panel-info">
                             <div class="panel-heading">

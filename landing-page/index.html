@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compre Já</title>
         <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/actual.css">
     </head>
     <body ng-app="actual">
         <div class="container">
@@ -20,7 +21,7 @@
             <div class="row" ng-controller="landingPageController">
                 <div class="col-lg-6" id="form-container">
                     
-                    <form id="step_1" class="form-step">
+                    <form id="step_1" class="form-step" ng-show="formOne">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -32,36 +33,51 @@
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Nome Completo</label>
-                                            <input class="form-control" type="text" name="nome">
+                                            <input ng-model="formDataOne.nome" class="form-control" type="text" name="nome">
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Data de Nascimento</label>
-                                            <input class="form-control date" type="text" name="data_nascimento">
+                                            <input ng-model="formDataOne.data" class="form-control date" type="text" name="data_nascimento">
                                         </div>
                                     </div>
 
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Email</label>
-                                            <input class="form-control" type="text" name="email">
+                                            <input ng-model="formDataOne.email" class="form-control" type="text" name="email">
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Telefone</label>
-                                            <input class="form-control sp_celphones" type="text" name="telefone">
+                                            <input ng-model="formDataOne.telefone" class="form-control sp_celphones" type="text" name="telefone">
                                         </div>
                                     </div>
 
-                                    <div>
-                                        <button type="submit" class="btn btn-lg btn-info next-step">Próximo Passo</button>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <button 
+                                                ng-disabled="(formDataOne.nome && formDataOne.email && formDataOne.data && formDataOne.telefone) ?false: true" 
+                                                ng-click="proxEtapa(formDataOne)"
+                                                class="btn btn-lg btn-info next-step"
+                                            >
+                                                Próximo Passo
+                                            </button>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <ul class="error" ng-show="errors">
+                                                <li class="alert alert-danger" ng-repeat="error in errors">
+                                                    {{error}}
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </fieldset>
                             </div>
                         </div>
                     </form>
 
-                    <form id="step_2" class="form-step" style="display:none">
+                    <form id="step_2" class="form-step" ng-show="formTwo">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="panel-title">
@@ -73,13 +89,22 @@
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Região</label>
-                                            <select class="form-control" name="regiao">
+                                            <!-- <select class="form-control" name="regiao">
                                                 <option value="">Selecione a sua região</option>
                                                 <option>Sul</option>
                                                 <option>Sudeste</option>
                                                 <option>Centro-Oeste</option>
                                                 <option>Nordeste</option>
                                                 <option>Norte</option>
+                                            </select> -->
+                                            <select class="form-control" name="regiao" ng-model="formDataTwo.regiao">
+                                                <option value="">Selecione a sua região</option>
+                                                <option 
+                                                    ng-repeat="regiao in regioes" 
+                                                    value="{{regiao.id}}"
+                                                >
+                                                    {{regiao.nome}}
+                                                </option>
                                             </select>
                                         </div>
 
@@ -93,7 +118,7 @@
                                     </div>
 
                                     <div>
-                                        <button type="submit" class="btn btn-lg btn-info next-step">Enviar</button>
+                                        <button ng-click="enviar(formDataTwo)" class="btn btn-lg btn-info next-step">Enviar</button>
                                     </div>
                                 </fieldset>
                             </div>
@@ -119,6 +144,8 @@
                 </div>
             </div>
         </div>
+
+
         <!-- Libs -->
         <script src="lib/jquery/dist/jquery.min.js"></script>
         <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>

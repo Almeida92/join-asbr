@@ -1,10 +1,3 @@
-$(function () {
-    $('.next-step').click(function (event) {
-        event.preventDefault();
-        $(this).parents('.form-step').hide().next().show();
-    });
-});
-
 // Máscaras 
 
 $('.date').mask("00/00/0000", {placeholder: "__/__/____"});

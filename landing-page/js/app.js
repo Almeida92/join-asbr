@@ -2,15 +2,9 @@ var actual = angular.module('actual',[]);
 
 actual.controller('landingPageController', function($scope){
 
-	$scope.formDataOne = {
-		nome: 'feripe',
-		email: 'feripe@mail.com',
-		data : '10/10/2010',
-		telefone : '(11) 9999-9999'
-	};
-
 	$scope.formOne = true;
 	$scope.formTwo = false;
+	$scope.unidades = [];
 	$scope.regioes = [
 		{id:1,nome:'Sul'},
 	    {id:2,nome:'Sudeste'},
@@ -18,7 +12,6 @@ actual.controller('landingPageController', function($scope){
 	    {id:4,nome:'Nordeste'},
 	    {id:5,nome:'Norte'}
 	];
-
 
 	// Regex para validações 
 	var validationTel = /^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-?\d{4}$/;
@@ -46,9 +39,49 @@ actual.controller('landingPageController', function($scope){
 		}
 	};
 
+	$scope.change = function(model) {
+		switch(model) {
+		    case 'Sul':
+
+		        $scope.unidades =[
+		        	{id:1,nome:'Porto Alegre'},
+				    {id:2,nome:'Curitiba'}
+		        ];
+		        break;
+
+		    case 'Sudeste':
+		        
+		        $scope.unidades =[
+		        	{id:3, nome:'São Paulo'},
+				    {id:4, nome:'Rio de Janeiro'},
+				    {id:5, nome:'Belo Horizonte'}
+		        ];
+		        break;
+			case 'Centro-Oeste':
+
+				$scope.unidades = [{id:6, nome:'Brasília'}];
+		        break;
+		    case 'Nordeste':
+
+		    	$scope.unidades =[
+		        	{id:7, nome:'Salvador'},
+				    {id:8, nome:'Recife'},
+		        ];
+		        break;
+		    case 'Norte':
+
+		    	$scope.unidades =[
+		        	{id:9, nome:'Não possui disponibilidade'},
+		        ];
+		        break;	        
+		}
+	}
+
 	$scope.enviar = function(form) {
 		console.log(form);
 	};
+
+
 });
 
 

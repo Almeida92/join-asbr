@@ -33,32 +33,32 @@
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Nome Completo</label>
-                                            <input ng-model="formDataOne.nome" class="form-control" type="text" name="nome">
+                                            <input ng-model="form.nome" class="form-control" type="text" name="nome">
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Data de Nascimento</label>
-                                            <input ng-model="formDataOne.data" class="form-control date" type="text" name="data_nascimento">
+                                            <input ng-model="form.data" class="form-control date" type="text" name="data_nascimento">
                                         </div>
                                     </div>
 
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Email</label>
-                                            <input ng-model="formDataOne.email" class="form-control" type="text" name="email">
+                                            <input ng-model="form.email" class="form-control" type="text" name="email">
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Telefone</label>
-                                            <input ng-model="formDataOne.telefone" class="form-control sp_celphones" type="text" name="telefone">
+                                            <input ng-model="form.telefone" class="form-control sp_celphones" type="text" name="telefone">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-4">
                                             <button 
-                                                ng-disabled="(formDataOne.nome && formDataOne.email && formDataOne.data && formDataOne.telefone) ?false: true" 
-                                                ng-click="proxEtapa(formDataOne)"
+                                                ng-disabled="(form.nome && form.email && form.data && form.telefone) ?false: true" 
+                                                ng-click="proxEtapa(form)"
                                                 class="btn btn-lg btn-info next-step"
                                             >
                                                 Próximo Passo
@@ -89,19 +89,11 @@
                                     <div class="row form-group">
                                         <div class="col-lg-6">
                                             <label>Região</label>
-                                            <!-- <select class="form-control" name="regiao">
-                                                <option value="">Selecione a sua região</option>
-                                                <option>Sul</option>
-                                                <option>Sudeste</option>
-                                                <option>Centro-Oeste</option>
-                                                <option>Nordeste</option>
-                                                <option>Norte</option>
-                                            </select> -->
-                                            <select class="form-control" name="regiao" ng-model="formDataTwo.regiao">
+                                            <select ng-change="change(form.regiao)" class="form-control" name="regiao" ng-model="form.regiao">
                                                 <option value="">Selecione a sua região</option>
                                                 <option 
                                                     ng-repeat="regiao in regioes" 
-                                                    value="{{regiao.id}}"
+                                                    value="{{regiao.nome}}"
                                                 >
                                                     {{regiao.nome}}
                                                 </option>
@@ -110,15 +102,19 @@
 
                                         <div class="col-lg-6">
                                             <label>Unidade</label>
-                                            <select class="form-control" name="unidade">
+                                            <select class="form-control" name="unidade" ng-model="form.unidade">
                                                 <option value="">Selecione a unidade mais próxima</option>
-                                                <option>???</option>
+                                                <option ng-repeat="unidade in unidades" value="{{unidade.nome}}">
+                                                    {{unidade.nome}}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <button ng-click="enviar(formDataTwo)" class="btn btn-lg btn-info next-step">Enviar</button>
+                                        <button 
+                                        ng-disabled="(form.unidade && form.regiao) ?false: true"
+                                        ng-click="enviar(form)" class="btn btn-lg btn-info next-step">Enviar</button>
                                     </div>
                                 </fieldset>
                             </div>

@@ -1,0 +1,4 @@
+api_landing_page_homepage:
+    path:     /
+    defaults: { _controller: ApiLandingPageBundle:Api:index }
+    methods:  [POST]

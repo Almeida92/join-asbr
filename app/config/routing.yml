@@ -1,3 +1,7 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+landing_page:
+    resource: "@LandingPageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+api_landing_page:
+    resource: "@ApiLandingPageBundle/Resources/config/routing.yml"
+    prefix:   /api

@@ -2,12 +2,25 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>Compre Já</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{asset('assets/lib/bootstrap/dist/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/css/actual.css')}}">
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        
+        <!-- Libs -->
+        <script>
+            window.routes = "{{ routes | escape('js') }}";
+        </script>
+        <script src="{{asset('assets/lib/jquery/dist/jquery.min.js')}}"></script>
+        <script src="{{asset('assets/lib/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/lib/jquery-mask-plugin/dist/jquery.mask.min.js')}}"></script>
+        <script src="{{asset('assets/lib/angular/angular.min.js')}}"></script>
+
+        <!-- Codigos JS -->
+        <script src="{{asset('assets/js/app.js')}}"></script>
+        <script src="{{asset('assets/js/main.js')}}"></script>
     </body>
 </html>

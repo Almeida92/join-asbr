@@ -1,0 +1,30 @@
+ApiLandingPageBundle\Entity\Cliente:
+    type: entity
+    table: null
+    repositoryClass: ApiLandingPageBundle\Repository\ClienteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: '125'
+        email:
+            type: string
+            length: '125'
+        dataNasc:
+            type: string
+            length: '125'
+        telefone:
+            type: string
+            length: '125'
+        regiao:
+            type: string
+            length: '125'
+        unidade:
+            type: string
+            length: '125'
+    lifecycleCallbacks: {  }

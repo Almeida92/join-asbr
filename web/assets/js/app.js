@@ -6,13 +6,6 @@ actual.controller('landingPageController', function($scope, routes, $http){
 	$scope.formOne = true;
 	$scope.formTwo = false;
 	$scope.unidades = [];
-	$scope.form = {
-		nome: 'felipe almeida',
-		email: 'felipe@almeida.com',
-		data: '10/10/2010',
-		telefone: '(11)5533-4545'
-	};
-
 	$scope.regioes = [
 		{id:1,nome:'Sul'},
 	    {id:2,nome:'Sudeste'},

@@ -25,14 +25,14 @@ ex: localhost/join-asbr/web
 Arquivos importante  
 ========================
 
-# Lógica Angular
+* Lógica Angular
 web/assets/js/app.js 
 
-# mascaras Jquery
+* mascaras Jquery
 web/assets/js/main.js 
 
-#controller Api
+*controller Api
 src/ApiLandingPageBundle/Controller/ApiController.php
 
-#Template Twig
+*Template Twig
 src/LandingPageBundle/Resources/views/Default/index.html.twig

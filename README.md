@@ -31,8 +31,8 @@ web/assets/js/app.js
 * mascaras Jquery
 web/assets/js/main.js 
 
-*controller Api
+* controller Api
 src/ApiLandingPageBundle/Controller/ApiController.php
 
-*Template Twig
+* Template Twig
 src/LandingPageBundle/Resources/views/Default/index.html.twig

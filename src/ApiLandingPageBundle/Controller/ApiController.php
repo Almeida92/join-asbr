@@ -92,31 +92,7 @@ class ApiController extends Controller
     	 salvo recursivamente */
     	$em->persist($lead);
     	$em->flush();
-
-  //   	$data = http_build_query([
-  //   		'nome' => $lead->getCliente()->getNome(),
-  //   		'email' => $lead->getCliente()->getEmail(),
-  //   		'telefone' => $lead->getCliente()->getTelefone(),
-  //   		'regiao' => [$lead->getCliente()->getRegiao()],
-  //   		'unidade' => [$lead->getCliente()->getUnidade()],
-  //   		'data_nascimento' => $lead->getCliente()->getDataNasc(),
-  //   		'score' => $lead->getScore(),
-  //   		'token' => $lead->getToken(),
-  //   	]);
-
-  //   	$content = stream_context_create([
-  //   		'http' => [
-  //   			'method' => 'POST',
-  //   			'header' => "Content-type: application/x-www-form-urlencoded\r\n".
-  //   				"Content-Length: ".strlen($data)."\r\n",
-  //   			'content' => $data
-  //   		]
-  //   	]);
-
-  //   	$fp = fopen('http://api.actualsales.com.br/join-asbr/ti/lead', 'r', false, $content);
-		// fpassthru($fp);
-		// fclose($fp);
-
+      
 		$postfields = [
 			'nome' => $lead->getCliente()->getNome(),
     		'email' => $lead->getCliente()->getEmail(),

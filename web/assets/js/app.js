@@ -98,9 +98,9 @@ actual.controller('landingPageController', function($scope, routes, $http){
 			},
 			url: routes.api
 		}).then(function success(response) {
-		    console.log(response);
+		    $scope.sucesso = response.data.message;
 		}, function error(response) {
-		    console.log(response);
+		    $scope.errors = response.data.message;
 		});
 	};
 });

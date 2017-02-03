@@ -1,0 +1,22 @@
+ApiLandingPageBundle\Entity\Lead:
+    type: entity
+    table: null
+    repositoryClass: ApiLandingPageBundle\Repository\LeadRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        score:
+            type: integer
+        token:
+            type: string
+            length: '125'
+    manyToOne:
+        cliente:
+            targetEntity: ApiLandingPageBundle\Entity\Cliente
+            cascade: ['persist']
+
+    lifecycleCallbacks: {  }

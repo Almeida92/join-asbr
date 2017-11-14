@@ -22,7 +22,7 @@ agora basta acessar a Pasta /web
 
 ex: localhost/join-asbr/web
 
-Arquivos importante  
+Arquivos importantes  
 ========================
 
 * Lógica Angular
